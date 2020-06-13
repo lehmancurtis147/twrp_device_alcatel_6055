@@ -19,6 +19,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := idol4
-PRODUCT_BRAND := tcl
-PRODUCT_MODEL := Alcatel 6055U
-PRODUCT_MANUFACTURER := tcl
+PRODUCT_BRAND := Alcatel
+PRODUCT_MODEL := Alcatel_6055U
+PRODUCT_MANUFACTURER := TCL

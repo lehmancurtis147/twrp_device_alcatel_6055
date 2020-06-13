@@ -16,6 +16,10 @@
 
 LOCAL_PATH := device/alcatel/idol4
 
+# Platform
+TARGET_BOARD_PLATFORM := msm8952
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno510
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -44,6 +48,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_SUPPRESS_SECURE_ERASE := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -62,6 +67,9 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
 TW_THEME := portrait_hdpi
 TW_NO_SCREEN_TIMEOUT            := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_DEFAULT_BRIGHTNESS := 102
+TW_DEFAULT_EXTERNAL_STORAGE := true
 HAVE_SELINUX := true
 TW_EXCLUDE_SUPERSU := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -76,7 +84,6 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 
 # exFAT FS Support
 TW_INCLUDE_FUSE_EXFAT := true
-
 # NTFS Support
 TW_INCLUDE_FUSE_NTFS := true
 
@@ -92,17 +99,24 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 ## PizzaG OrangeFox Additions
 # Maintainer name
 OF_MAINTAINER := PizzaG
+TW_DEVICE_VERSION := 1.4
 #FOX_RECOVERY_INSTALL_PARTITION     := "/dev/block/platform/bootdevice/by-name/recovery"
 ## Extras
 ANDROID_BUILD_EMBEDDED             := true
 OF_DEVICE_CODE := Alcatel_Idol_4
+OF_USE_MAGISKBOOT_FOR_ALL_PATCHES  := 1
 OF_DISABLE_MIUI_SPECIFIC_FEATURES  := true
 OF_EXTERNAL := /external_sd
 OF_INTERNAL := /sdcard
 OF_OTG := /usb_otg
 # Put 0 to disable flashlight
-OF_FLASH := 1
-OF_FLASH_MAX_BRIGHTNESS := 200
+#OF_FLASH := 1
+OF_FLASHLIGHT_ENABLE := 1
+#Front Light + Switch
+OF_FL_PATH1= /sys/class/leds/torch-light1
+OF_FL_PATH2= /sys/class/leds/led:switch
+OF_FLASH_MAX_BRIGHTNESS := 255
+OF_ALLOW_DISABLE_NAVBAR :=0
 # Use this flag only if your device is A/B
 OF_AB := false
 # Recovery Type (It can be treble,normal,SAR) [Only for About Section]
