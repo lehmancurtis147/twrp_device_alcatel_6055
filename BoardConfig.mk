@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-LOCAL_PATH                  := device/alcatel/idol4
+DEVICE_PATH                  := device/alcatel/idol4
 
 BOARD_VENDOR                := TCL
 
@@ -42,8 +42,8 @@ TARGET_BOARD_PLATFORM_GPU   := qcom-adreno510
 
 # Kernel
 TARGET_USES_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL      := $(LOCAL_PATH)/prebuilt/kernel
-
+TARGET_PREBUILT_KERNEL      := $(DEVICE_PATH)/prebuilt/kernel
+BOARD_KERNEL_OFFSET         := 0x00008000
 BOARD_KERNEL_PAGESIZE       := 2048
 BOARD_KERNEL_BASE           := 0x80000000
 BOARD_RAMDISK_OFFSET        := 0x01000000
@@ -104,9 +104,9 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE         := true
 TARGET_HW_DISK_ENCRYPTION              := true
 TARGET_RECOVERY_QCOM_RTC_FIX           := true
 
-TARGET_SYSTEM_PROP                     += $(LOCAL_PATH)/system.prop
-TARGET_RECOVERY_FSTAB                  := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
-TARGET_USE_CUSTOM_LUN_FILE_PATH        := /sys/devices/platform/msm_hsusb/gadget/lun0/file
+#TARGET_SYSTEM_PROP                     += $(LOCAL_PATH)/system.prop
+TARGET_RECOVERY_FSTAB                  := $(DEVICE_PATH)/recovery/root/etc/twrp.fstab
+#TARGET_USE_CUSTOM_LUN_FILE_PATH        := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 PLATFORM_SECURITY_PATCH                := 2099-12-31
 PLATFORM_VERSION                       := 16.1.0
@@ -116,7 +116,7 @@ TW_USE_TOOLBOX                         := true
 TW_SCREEN_BLANK_ON_BOOT                := true
 TW_EXTRA_LANGUAGES                     := true
 TW_INCLUDE_FB2PNG                      := true
-TW_INCLUDE_CRYPTO                      := true
+#TW_INCLUDE_CRYPTO                      := true
 TW_NO_SCREEN_BLANK                     := true
 TW_NO_BATT_PERCENT                     := false
 TW_BRIGHTNESS_PATH                     := /sys/class/leds/lcd-backlight/brightness

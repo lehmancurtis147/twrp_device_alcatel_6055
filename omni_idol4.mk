@@ -13,21 +13,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+DEVICE_PATH           := device/alcatel/idol4
 
 PRODUCT_RELEASE_NAME := "idol4"
 
+$(call inherit-product, vendor/omni/config/gsm.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, build/target/product/product_launched_with_m.mk)
 $(call inherit-product, build/target/product/embedded.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE       := idol4
 PRODUCT_NAME         := omni_idol4
-PRODUCT_BRAND        := TCL
-PRODUCT_MODEL        := Alcatel_6055U
-PRODUCT_MANUFACTURER := Alcatel
+PRODUCT_BRAND        := Alcatel
+PRODUCT_MODEL        := Idol 4 6055U
+PRODUCT_MANUFACTURER := tcl
 
 PRODUCT_PACKAGES += \
     adbd \
@@ -38,8 +41,8 @@ PRODUCT_PACKAGES += \
     power.default \
     power.mt6750 \
     kpoc_charger \
-    fuelgauged \
-    libfgauge \
-    fuelgauged_static \
     libfuelgauge_static \
     gzip
+
+#PRODUCT_COPY_FILES += \
+#   $(DEVICE_PATH)/system.prop:root/system.prop

@@ -28,7 +28,7 @@
 /dsp_image        emmc      /dev/block/bootdevice/by-name/dsp              flags=display="dsp image";backup=1
 
 /external_sd      vfat      /dev/block/mmcblk1p1   /dev/block/mmcblk1
-/usb-otg          vfat         /dev/block/sda1        /dev/block/sda       flags=display="USB-OTG";storage;wipeingui;removable
+/usb-otg          vfat      /dev/block/sda1        /dev/block/sda          flags=display="USB-OTG";storage;wipeingui;removable
 
 /devices/soc.0/7864900.sdhci/mmc_host*       auto       auto    defaults   flags=display="sdcard1";voldmanaged=sdcard1:auto,noemulatedsd,encryptable=footer
 /devices/platform/msm_hsusb*                 auto       auto    defaults   flags=display="usbdisk";voldmanaged=usbdisk:auto
